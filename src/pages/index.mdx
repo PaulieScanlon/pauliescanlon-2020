@@ -15,7 +15,8 @@ React, Gatsby.js, JavaScript, TypeScript/Flow, StyledComponents, Storybook, TDD 
 <Button as='a' variant='success' href='https://docs.google.com/document/d/10Z8w-099fRjVB1zA1Y9F3zVWtW1RfIxnOTIyrYn0HcY/edit' target='_blank'>View CV</Button>{" "}
 <Link href='https://docs.google.com/document/d/10Z8w-099fRjVB1zA1Y9F3zVWtW1RfIxnOTIyrYn0HcY/edit' target='_blank' >docs.google.com</Link>
 <Divider />
-
+<Divider />
+<Divider />
 
 ## about-me
 
@@ -61,6 +62,111 @@ You can find out more about me on my [blog](http://www.paulie.dev/) and read my 
 
   </Box>
 
+  <Box
+    sx={{
+      width: ["100%", "100%", "45%"],
+      mb: 3
+    }}
+  >
+ 
+
+  ## Top 5 tags
+
+
+  <TagList filter="portfolio">
+    {tags => (
+      <Flex sx={{ flexDirection: 'column' }}>
+        {tags
+          .splice(0, 5)
+          .sort((a, b) => b.percent - a.percent)
+          .map((tag, index) => {
+            const { name, count, percent } = tag
+            return (
+              <Box
+                key={index}
+                sx={{ color: 'muted', mb: 3, svg: { fill: 'muted' } }}
+              >
+                <Flex sx={{ lineHeight: 'normal' }}>
+                  <Text
+                    sx={{ color: 'secondary', mr: 2, mb: 0 }}
+                  >{`${name}`}</Text>
+                  <Text sx={{ color: 'muted' }}>{percent}</Text>
+                  <Text sx={{ color: 'error' }}>%</Text>
+                </Flex>
+                {'['}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1200 8"
+                  width="100%"
+                  height="8"
+                >
+                  <rect width={`${percent}%`} height={4} />
+                </svg>
+                {']'}
+                {/* <Box sx={{ backgroundColor:'muted', width: `${percent * 3}%`, height: 4}} /> */}
+              </Box>
+            )
+          })}
+      </Flex>
+    )}
+  </TagList>
+
+  </Box>
+
 </Flex>
 
 <Divider />
+
+
+## recent contracts
+
+<SourceList filter="portfolio">
+  {projects => (
+    <Flex
+      sx={{
+        flexWrap: "wrap",
+        ml: theme => `-${theme.space[2]}px`,
+        mr: theme => `-${theme.space[2]}px`,
+      }}
+    >
+      {projects
+      .sort((a, b) => new Date(b.node.frontmatter.date) - new Date(a.node.frontmatter.date))
+      .map((edge, index) => {
+        const {
+          frontmatter: { date, title, tags },
+          fields: { slug },
+          excerpt
+        } = edge.node
+        return (
+          <Box
+            key={index}
+            sx={{ display: 'flex', flex: '1 1 auto', flexDirection: 'column', mb: 3, width: ["100%", "50%"] }}
+          >
+            <Card
+              sx={{
+                display: 'flex', flex: '1 1 auto', flexDirection: 'column',
+                minHeight: '1px',
+                ml: 2, 
+                mr: 2,
+                p: 3,
+              }}
+            > 
+              <Box sx={{ display: 'flex', flex: '1 1 auto', flexDirection: 'column' }}>
+                <Text variant='styles.small'>{new Date(date).toLocaleDateString("en-GB")}</Text>
+                <Heading variant="styles.h4" sx={{color: 'text'}}>{title}</Heading>
+                <Text sx={{fontSize:0, color: 'text', mb: 3, wordBreak: 'break-word'}}>{excerpt}</Text>
+              </Box>
+              <Box>
+                {
+                  tags.map((tag, index) => {
+                    return <Badge key={index} variant='primary' sx={{mr: 2, mb: 2}}>{tag}</Badge>
+                  })
+                }
+              </Box>
+            </Card>
+          </Box>
+        )
+      })}
+    </Flex>
+  )}
+</SourceList>

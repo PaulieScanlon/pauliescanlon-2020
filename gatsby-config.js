@@ -22,7 +22,12 @@ module.exports = {
     },
   },
   plugins: [
-    "@pauliescanlon/gatsby-theme-terminal",
+    {
+      resolve: "@pauliescanlon/gatsby-theme-terminal",
+      options: {
+        source: "portfolio",
+      },
+    },
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
