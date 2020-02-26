@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: "Paul Scanlon",
+    name: "Paul Scanlon",
     description:
       "I'm a React UI developer / UX Engineer (contract). React, GatsbyJs, JavaScript, TypeScript/Flow, StyledComponents, Storybook, TDD (Jest/Enzyme) and a tiny bit of Node.js.",
     keywords: [
       "React",
-      "GatsbyJs",
+      "Gatsby.js",
       "JavaScript",
       "TypeScript",
       "Flow",
@@ -14,17 +14,15 @@ module.exports = {
       "Enzyme",
       "Node.js",
     ],
-    siteURL: "https://pauliescanlon.io",
-    siteImage: "images/gatstats_1080x608.jpg",
+    siteUrl: "https://pauliescanlon.io",
+    siteImage: "images/paulscanlon-open-graph-image.jpg",
+    lang: `eng`,
     config: {
-      headerHeight: 64,
-      sideBarWidth: 240,
-      twitter: "pauliescanlon",
-      github: "pauliescanlon",
+      sidebarWidth: 280,
     },
   },
   plugins: [
-    `@pauliescanlon/gatsby-theme-gatstats`,
+    "@pauliescanlon/gatsby-theme-terminal",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
