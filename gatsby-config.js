@@ -15,7 +15,7 @@ module.exports = {
       "Node.js",
     ],
     siteUrl: "https://pauliescanlon.io",
-    siteImage: "images/paulscanlon-open-graph-image.jpg",
+    siteImage: "images/pauliescanlon-open-graph-image.jpg",
     lang: `eng`,
     config: {
       sidebarWidth: 280,
