@@ -6,7 +6,7 @@ navigationLabel: home
 </Alert>
 <Divider />
 
-# paul-scanlon
+# [paul-scanlon](#paul-scanlon)
 
 I'm a React UI Developer / UX Engineer (contract) based in Worthing / UK.
 
@@ -18,7 +18,7 @@ React, Gatsby.js, JavaScript, TypeScript/Flow, StyledComponents, Storybook, TDD 
 <Divider />
 <Divider />
 
-## about-me
+## [about-me](#about-me)
 
 A long time ago I was a designer, and then after a few years I realised code is just better. I’ve held various positions in and around advertising and web development in both permanent and contract positions since 2005.
 
@@ -42,7 +42,7 @@ You can find out more about me on my [blog](http://www.paulie.dev/) and read my 
     }}
   >         
 
-  ## contact
+  ## [contact](#contact)
 
   <Heading variant='styles.h3' sx={{mb: 0}}>Email</Heading>
   <Link href='mailto:pauliescanlon@gmail.com' target='_blank' variant='styles.a'>pauliescanlon@gmail.com</Link>
@@ -70,15 +70,14 @@ You can find out more about me on my [blog](http://www.paulie.dev/) and read my 
   >
  
 
-  ## Top 5 tech
+  ## [tech-stack](#tech-stack)
 
-
-  <TagList filter="portfolio">
+  <TagList>
     {tags => (
       <Flex sx={{ flexDirection: 'column' }}>
         {tags
-          .splice(0, 5)
           .sort((a, b) => b.percent - a.percent)
+          .splice(0, 10)
           .map((tag, index) => {
             const { name, count, percent } = tag
             return (
@@ -103,7 +102,6 @@ You can find out more about me on my [blog](http://www.paulie.dev/) and read my 
                   <rect width={`${percent}%`} height={4} />
                 </svg>
                 {']'}
-                {/* <Box sx={{ backgroundColor:'muted', width: `${percent * 3}%`, height: 4}} /> */}
               </Box>
             )
           })}
@@ -118,7 +116,7 @@ You can find out more about me on my [blog](http://www.paulie.dev/) and read my 
 <Divider />
 
 
-## recent contracts
+## [recent contracts](#recent-contracts)
 
 <SourceList filter="portfolio">
   {projects => (
@@ -160,6 +158,62 @@ You can find out more about me on my [blog](http://www.paulie.dev/) and read my 
                 {
                   tags.map((tag, index) => {
                     return <Badge key={index} variant='primary' sx={{mr: 2, mb: 2}}>{tag}</Badge>
+                  })
+                }
+              </Box>
+            </Card>
+          </Box>
+        )
+      })}
+    </Flex>
+  )}
+</SourceList>
+
+<Divider />
+
+## [opensource](#open-source)
+
+<SourceList filter="opensource">
+  {projects => (
+    <Flex
+      sx={{
+        flexWrap: "wrap",
+        ml: theme => `-${theme.space[2]}px`,
+        mr: theme => `-${theme.space[2]}px`,
+      }}
+    >
+      {projects
+      .sort((a, b) => new Date(b.node.frontmatter.date) - new Date(a.node.frontmatter.date))
+      .map((edge, index) => {
+        const {
+          frontmatter: { date, title, tags, author },
+          fields: { slug },
+          excerpt
+        } = edge.node
+        return (
+          <Box
+            key={index}
+            sx={{ display: 'flex', flex: '1 1 auto', flexDirection: 'column', mb: 3, width: ["100%", "50%"] }}
+          >
+            <Card
+              sx={{
+                display: 'flex', flex: '1 1 auto', flexDirection: 'column',
+                minHeight: '1px',
+                ml: 2, 
+                mr: 2,
+                p: 3,
+              }}
+            > 
+              <Box sx={{ display: 'flex', flex: '1 1 auto', flexDirection: 'column' }}>
+                <Text variant='styles.small'>{new Date(date).toLocaleDateString("en-GB")}</Text>
+                <Heading variant="styles.h4" sx={{color: 'text'}}>{title}</Heading>
+                <Text sx={{fontSize:0, color: 'text', mb: 3, wordBreak: 'break-word'}}>{excerpt}</Text>
+                <Link sx={{fontSize:0, mb: 3}}href={author} target='_blank'>View on GitHub</Link>
+              </Box>
+              <Box>
+                {
+                  tags.map((tag, index) => {
+                    return <Badge key={index} variant='secondary' sx={{mr: 2, mb: 2}}>{tag}</Badge>
                   })
                 }
               </Box>
