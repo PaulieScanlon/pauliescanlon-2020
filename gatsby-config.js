@@ -16,6 +16,7 @@ module.exports = {
     ],
     siteUrl: "https://pauliescanlon.io",
     siteImage: "images/pauliescanlon-open-graph-image.jpg",
+    profileImage: ``,
     lang: `eng`,
     config: {
       sidebarWidth: 280,
@@ -28,6 +29,20 @@ module.exports = {
         source: ["portfolio", "opensource"],
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Paul Scanlon`,
+        short_name: `Ps`,
+        start_url: `/`,
+        lang: `eng`,
+        background_color: `#282a36`,
+        theme_color: `#ff79c6`,
+        display: `standalone`,
+        icon: `src/manifesticon-512x512.png`,
+      },
+    },
+    `gatsby-plugin-offline`,
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
