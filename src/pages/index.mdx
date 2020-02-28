@@ -3,6 +3,7 @@ navigationLabel: home
 ---
 
 import { format } from 'date-fns'
+import { mix } from '@theme-ui/color'
 
 <Alert variant='success'>
   Alert... I'm looking for remote contract React/Gatsby work.
@@ -165,7 +166,18 @@ You can find out more about me on my [blog](http://www.paulie.dev/) and read my 
               <Box>
                 {
                   tags.map((tag, index) => {
-                    return <Badge key={index} variant='primary' sx={{mr: 2, mb: 2}}>{tag}</Badge>
+                    return (
+                   <Badge 
+                    key={index} 
+                    variant='primary' 
+                    sx={{
+                      mr: 2, 
+                      mb: 2,
+                      color: mix('muted', 'primary', `${index / tags.length}`),
+                      borderColor: mix('muted', 'primary', `${index / tags.length}`),}}>
+                      {tag}
+                    </Badge>
+                    )
                   })
                 }
               </Box>
@@ -221,7 +233,18 @@ You can find out more about me on my [blog](http://www.paulie.dev/) and read my 
               <Box>
                 {
                   tags.map((tag, index) => {
-                    return <Badge key={index} variant='secondary' sx={{mr: 2, mb: 2}}>{tag}</Badge>
+                    return (
+                   <Badge 
+                    key={index} 
+                    variant='primary' 
+                    sx={{
+                      mr: 2, 
+                      mb: 2,
+                      color: mix('muted', 'secondary', `${index / tags.length}`),
+                      borderColor: mix('muted', 'secondary', `${index / tags.length}`),}}>
+                      {tag}
+                    </Badge>
+                    )
                   })
                 }
               </Box>
