@@ -95,20 +95,20 @@ You can find out more about me on my [blog](http://www.paulie.dev/) and read my 
                   <Text sx={{ color: 'muted' }}>{percent}</Text>
                   <Text sx={{ color: 'error' }}>%</Text>
                 </Flex>
-                <Flex>
-                 {'['}
-                  <Box>
+                <Box sx={{ display: 'flex' }}>
+                 <Box>{'['}</Box>
+                  <Box sx={{flexBasis: '100%'}}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 1200 8"
                       width="100%"
                       height="8"
                     >
-                      <rect width={`${percent}%`} height={4} />
+                      <rect width={`${percent * 3}%`} height={4} />
                     </svg>
                   </Box>
-                  {']'}
-                </Flex>
+                  <Box> {']'}</Box>
+                </Box>
               </Box>
             )
           })}
