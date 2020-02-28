@@ -17,7 +17,7 @@ module.exports = {
     siteUrl: "https://pauliescanlon.io",
     siteImage: "images/pauliescanlon-open-graph-image.jpg",
     profileImage: ``,
-    lang: `eng`,
+    lang: `en`,
     config: {
       sidebarWidth: 280,
     },
@@ -35,7 +35,7 @@ module.exports = {
         name: `Paul Scanlon`,
         short_name: `Ps`,
         start_url: `/`,
-        lang: `eng`,
+        lang: `en`,
         background_color: `#282a36`,
         theme_color: `#ff79c6`,
         display: `standalone`,
