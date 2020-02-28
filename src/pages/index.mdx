@@ -1,6 +1,9 @@
 ---
 navigationLabel: home
 ---
+
+import { format } from 'date-fns'
+
 <Alert variant='success'>
   Alert... I'm looking for remote contract React/Gatsby work.
 </Alert>
@@ -139,6 +142,7 @@ You can find out more about me on my [blog](http://www.paulie.dev/) and read my 
           fields: { slug },
           excerpt
         } = edge.node
+        console.log(date)
         return (
           <Box
             key={index}
@@ -154,7 +158,7 @@ You can find out more about me on my [blog](http://www.paulie.dev/) and read my 
               }}
             > 
               <Box sx={{ display: 'flex', flex: '1 1 auto', flexDirection: 'column' }}>
-                <Text variant='styles.small'>{new Date(date).toLocaleDateString("en-GB")}</Text>
+                <Text variant='styles.small'>{format(new Date(date), 'd-MMM-u')}</Text>
                 <Heading variant="styles.h4" sx={{color: 'text'}}>{title}</Heading>
                 <Text sx={{fontSize:0, color: 'text', mb: 3, wordBreak: 'break-word'}}>{excerpt}</Text>
               </Box>
@@ -209,7 +213,7 @@ You can find out more about me on my [blog](http://www.paulie.dev/) and read my 
               }}
             > 
               <Box sx={{ display: 'flex', flex: '1 1 auto', flexDirection: 'column' }}>
-                <Text variant='styles.small'>{new Date(date).toLocaleDateString("en-GB")}</Text>
+                <Text variant='styles.small'>{format(new Date(date), 'd-MMM-u')}</Text>
                 <Heading variant="styles.h4" sx={{color: 'text'}}>{title}</Heading>
                 <Text sx={{fontSize:0, color: 'text', mb: 3, wordBreak: 'break-word'}}>{excerpt}</Text>
                 <Link sx={{fontSize:0, mb: 3}}href={author} target='_blank'>View on GitHub</Link>
