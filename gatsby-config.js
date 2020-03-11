@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     name: "Paul Scanlon",
     description:
-      "I'm a React UI developer / UX Engineer (contract). React, GatsbyJs, JavaScript, TypeScript/Flow, StyledComponents, Storybook, TDD (Jest/Enzyme) and a tiny bit of Node.js.",
+      "I'm a React UI developer / UX Engineer (contract). React, Gatsby.js, JavaScript, TypeScript/Flow, StyledComponents, Theme UI, Storybook, TDD (Jest/Enzyme) and a tiny bit of Node.js.",
     keywords: [
       "React",
       "Gatsby.js",
@@ -10,9 +10,11 @@ module.exports = {
       "TypeScript",
       "Flow",
       "StyledComponents",
+      "Theme UI",
       "Jest",
       "Enzyme",
       "Node.js",
+      "Component Library",
     ],
     siteUrl: "https://pauliescanlon.io",
     siteImage: "images/pauliescanlon-open-graph-image.jpg",
@@ -26,7 +28,7 @@ module.exports = {
     {
       resolve: "@pauliescanlon/gatsby-theme-terminal",
       options: {
-        source: ["portfolio", "opensource"],
+        source: ["portfolio", "opensource", "sidehussle"],
       },
     },
     {

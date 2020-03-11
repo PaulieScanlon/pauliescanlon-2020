@@ -14,7 +14,7 @@ import { mix } from '@theme-ui/color'
 
 I'm a React UI Developer / UX Engineer (contract) based in Worthing / UK.
 
-React, Gatsby.js, JavaScript, TypeScript/Flow, StyledComponents, Storybook, TDD (Jest/Enzyme) & a tiny bit of Node.js.
+React, Gatsby.js, JavaScript, TypeScript/Flow, StyledComponents, Theme UI, Storybook, TDD (Jest/Enzyme) and a tiny bit of Node.js
 
 <Button as='a' variant='success' href='https://docs.google.com/document/d/10Z8w-099fRjVB1zA1Y9F3zVWtW1RfIxnOTIyrYn0HcY/edit' target='_blank'>View CV</Button>{" "}
 <Link href='https://docs.google.com/document/d/10Z8w-099fRjVB1zA1Y9F3zVWtW1RfIxnOTIyrYn0HcY/edit' target='_blank' title='View CV'>docs.google.com</Link>
@@ -26,11 +26,11 @@ React, Gatsby.js, JavaScript, TypeScript/Flow, StyledComponents, Storybook, TDD 
 
 A long time ago I was a designer, and then after a few years I realised code is just better. I’ve held various positions in and around advertising and web development in both permanent and contract positions since 2005.
 
-In 2012 I co-founded and ran **award** winning digital production agency Super natural until 2016. Since then I’ve been contracting and love React, user interface development and data visualization. I have good JavaScript knowledge but wouldn't class myself as a hardcore JavaScript engineer.
+In 2012 I co-founded and ran **award** winning digital production agency Super natural until 2016. Since then I’ve been contracting and love React, user interface development and data visualisation. I have good JavaScript knowledge but wouldn't class myself as a hardcore JavaScript engineer.
 
-My primary focus over the last few years has been building custom React UI Libraries using Storybook and StyledComponents and developing multiple Gatsby.js themes and plugins.
+My primary focus over the last few years has been building custom React Component Libraries using Storybook and StyledComponents and developing multiple Gatsby.js themes and plugins.
 
-I’m a huge fan of process and have worked with some great developers in some very well organized engineering teams. I’m familiar with and enjoy agile working processes... but after all is said and done structure + order = fun.
+I’m a huge fan of process and have worked with some great developers in some very well organised engineering teams. I’m familiar with and enjoy agile working processes... but after all is said and done structure + order = fun.
 
 You can find out more about me on my [blog](http://www.paulie.dev/) and read my cv/resume [here](https://docs.google.com/document/d/10Z8w-099fRjVB1zA1Y9F3zVWtW1RfIxnOTIyrYn0HcY/edit)
 
@@ -123,8 +123,9 @@ You can find out more about me on my [blog](http://www.paulie.dev/) and read my 
 
 <Divider />
 
-
 ## [recent contracts](#recent-contracts)
+
+Paid commercial work... all under NDA and on lockdown
 
 <SourceList filter="portfolio">
   {projects => (
@@ -189,8 +190,11 @@ You can find out more about me on my [blog](http://www.paulie.dev/) and read my 
 </SourceList>
 
 <Divider />
+<Divider />
 
 ## [opensource](#open-source)
+
+Opensource contributions and projects i'm actively maintaining
 
 <SourceList filter="opensource">
   {projects => (
@@ -241,6 +245,76 @@ You can find out more about me on my [blog](http://www.paulie.dev/) and read my 
                       mb: 2,
                       color: mix('muted', 'secondary', `${index / tags.length}`),
                       borderColor: mix('muted', 'secondary', `${index / tags.length}`),}}>
+                      {tag}
+                    </Badge>
+                    )
+                  })
+                }
+              </Box>
+            </Card>
+          </Box>
+        )
+      })}
+    </Flex>
+  )}
+</SourceList>
+
+<Divider />
+<Divider />
+
+## [side hussle](#side-hussle)
+
+React applications i've built in my spare time, because i love it
+
+<SourceList filter="sidehussle">
+  {projects => (
+    <Flex
+      sx={{
+        flexWrap: "wrap",
+        ml: theme => `-${theme.space[2]}px`,
+        mr: theme => `-${theme.space[2]}px`,
+      }}
+    >
+      {projects
+      .sort((a, b) => new Date(b.node.frontmatter.date) - new Date(a.node.frontmatter.date))
+      .map((edge, index) => {
+        const {
+          frontmatter: { date, title, tags, author },
+          fields: { slug },
+          excerpt
+        } = edge.node
+        return (
+          <Box
+            key={index}
+            sx={{ display: 'flex', flex: '1 1 auto', flexDirection: 'column', mb: 3, width: ["100%", "50%"] }}
+          >
+            <Card
+              sx={{
+                display: 'flex', flex: '1 1 auto', flexDirection: 'column',
+                minHeight: '1px',
+                ml: 2, 
+                mr: 2,
+                p: 3,
+              }}
+            > 
+              <Box sx={{ display: 'flex', flex: '1 1 auto', flexDirection: 'column' }}>
+                <Text variant='styles.small'>{format(new Date(date), 'd-MMM-u')}</Text>
+                <Heading variant="styles.h4" sx={{color: 'text'}}>{title}</Heading>
+                <Text sx={{fontSize:0, color: 'text', mb: 3, wordBreak: 'break-word'}}>{excerpt}</Text>
+                <Link sx={{fontSize:0, mb: 3}}href={author} target='_blank'>View project</Link>
+              </Box>
+              <Box>
+                {
+                  tags.map((tag, index) => {
+                    return (
+                   <Badge 
+                    key={index} 
+                    variant='primary' 
+                    sx={{
+                      mr: 2, 
+                      mb: 2,
+                      color: mix('muted', 'primary', `${index / tags.length}`),
+                      borderColor: mix('muted', 'primary', `${index / tags.length}`),}}>
                       {tag}
                     </Badge>
                     )
