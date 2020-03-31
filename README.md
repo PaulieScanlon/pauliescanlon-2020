@@ -1,3 +1,3 @@
 ## 🚢 Ahoy
 
-This site is built using [@pauliescanlon/gatsby-theme-gatstats](https://github.com/PaulieScanlon/gatsby-theme-gatstats)
+This site is built using [@pauliescanlon/gatsby-theme-terminal](https://github.com/PaulieScanlon/gatsby-theme-terminal)
