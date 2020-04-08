@@ -6,8 +6,7 @@ import { format } from "date-fns"
 import { mix } from "@theme-ui/color"
 
 <Alert variant="error">
-  I'm currently unavailable for new opportunities but will be looking again in
-  May 2020.
+  I'm currently on contract but will be looking again in May 2020.
 </Alert>
 <Divider />
 
@@ -62,8 +61,6 @@ You can find out more about me on my [blog](http://www.paulie.dev/) and read my 
   pauliescanlon@gmail.com
 </Link>
 <Divider />
-
-{" "}
 
 <Heading variant="styles.h3" sx={{ mb: 0 }}>
   Twitter
@@ -165,7 +162,7 @@ Paid commercial work... all under NDA and on lockdown
         )
         .map((edge, index) => {
           const {
-            frontmatter: { date, title, tags },
+            frontmatter: { date, dateModified, title, tags },
             fields: { slug },
             excerpt,
           } = edge.node
@@ -178,6 +175,7 @@ Paid commercial work... all under NDA and on lockdown
                 flexDirection: "column",
                 mb: 3,
                 width: ["100%", "50%"],
+                maxWidth: ["100%", "50%"],
               }}
             >
               <Card
@@ -198,10 +196,20 @@ Paid commercial work... all under NDA and on lockdown
                     flexDirection: "column",
                   }}
                 >
-                  <Text variant="styles.small">
-                    {format(new Date(date), "d-MMM-u")}
-                  </Text>
-                  <Heading variant="styles.h4" sx={{ color: "text" }}>
+                  <Flex>
+                    <Text variant="styles.small">
+                      {format(new Date(date), "d-MMM-u")}
+                    </Text>
+                    <Text sx={{ mx: 1 }} variant="styles.small">
+                      /
+                    </Text>
+                    {dateModified && (
+                      <Text variant="styles.small">
+                        {format(new Date(dateModified), "d-MMM-u")}
+                      </Text>
+                    )}
+                  </Flex>
+                  <Heading variant="styles.h4" sx={{ color: "text", mt: 1 }}>
                     {title}
                   </Heading>
                   <Text
@@ -286,6 +294,7 @@ Opensource contributions and projects i'm actively maintaining
                 flexDirection: "column",
                 mb: 3,
                 width: ["100%", "50%"],
+                maxWidth: ["100%", "50%"],
               }}
             >
               <Card
@@ -309,7 +318,7 @@ Opensource contributions and projects i'm actively maintaining
                   <Text variant="styles.small">
                     {format(new Date(date), "d-MMM-u")}
                   </Text>
-                  <Heading variant="styles.h4" sx={{ color: "text" }}>
+                  <Heading variant="styles.h4" sx={{ color: "text", mt: 1 }}>
                     {title}
                   </Heading>
                   <Text
@@ -401,6 +410,7 @@ React applications i've built in my spare time, because i love it
                 flexDirection: "column",
                 mb: 3,
                 width: ["100%", "50%"],
+                maxWidth: ["100%", "50%"],
               }}
             >
               <Card
@@ -424,7 +434,7 @@ React applications i've built in my spare time, because i love it
                   <Text variant="styles.small">
                     {format(new Date(date), "d-MMM-u")}
                   </Text>
-                  <Heading variant="styles.h4" sx={{ color: "text" }}>
+                  <Heading variant="styles.h4" sx={{ color: "text", mt: 1 }}>
                     {title}
                   </Heading>
                   <Text
