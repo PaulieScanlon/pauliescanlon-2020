@@ -32,11 +32,10 @@ React, Gatsby.js, JavaScript, TypeScript/Flow, StyledComponents, Theme UI, Story
 </Link>
 <Divider />
 <Divider />
-<Divider />
 
 ## [intro](#intro)
 
-A long time ago I was a designer, and then after a few years I realised code is just better. I’ve held various positions in and around advertising and web development in both permanent and contract positions since 2005.
+Well hey there! 👋 I'm Paul, I'm a React UI Developer / UX Engineer and a long long time ago i was a designer but after a few years of pixel pushing I realized code is just better! I’ve held various positions in and around advertising and web development in both permanent and contract positions since 2005.
 
 <Divider />
 
@@ -53,7 +52,6 @@ In recent months i've developed an interest in technical writing and have starte
   Visit Blog
 </Button>
 
-<Divider />
 <Divider />
 <Divider />
 
@@ -158,7 +156,7 @@ In recent months i've developed an interest in technical writing and have starte
 
 ## [recent contracts](#recent-contracts)
 
-Paid commercial work... all under NDA and on lockdown
+Paid commercial work
 
 <SourceList filter="portfolio">
   {(projects) => (
@@ -177,7 +175,7 @@ Paid commercial work... all under NDA and on lockdown
         )
         .map((edge, index) => {
           const {
-            frontmatter: { date, dateModified, title, tags },
+            frontmatter: { date, dateModified, author, title, tags },
             fields: { slug },
             excerpt,
           } = edge.node
@@ -223,6 +221,7 @@ Paid commercial work... all under NDA and on lockdown
                         {format(new Date(dateModified), "d-MMM-u")}
                       </Text>
                     )}
+                    {author && <Text variant="styles.small">{author}</Text>}
                   </Flex>
                   <Heading variant="styles.h4" sx={{ color: "text", mt: 1 }}>
                     {title}
