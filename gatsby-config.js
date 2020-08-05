@@ -21,7 +21,8 @@ module.exports = {
       "Component Library",
     ],
     siteUrl: "https://pauliescanlon.io",
-    siteImage: "images/pauliescanlon-open-graph-image.jpg",
+    siteImage:
+      "https://pauliescanlon.io/images/pauliescanlon-open-graph-image.jpg",
     profileImage: ``,
     lang: `en`,
     config: {
@@ -48,7 +49,8 @@ module.exports = {
         icon: `src/manifesticon-512x512.png`,
       },
     },
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
+    `gatsby-plugin-remove-serviceworker`,
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
