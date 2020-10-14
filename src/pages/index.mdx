@@ -44,7 +44,7 @@ Well hey there! 👋 I'm Paul and a long long time ago i was a designer but afte
 
 ## [more info](#more-info)
 
-In recent months i've developed an interest in technical writing and have started to document my workings and findings on my [blog](http://www.paulie.dev/)
+In recent months I've developed an interest in technical writing and have started to document my workings and findings on my [blog](http://www.paulie.dev/)
 
 <Button
   as="a"
@@ -60,6 +60,7 @@ In recent months i've developed an interest in technical writing and have starte
 
 <Flex sx={{ flexWrap: "wrap" }}>
 
+
   <Box
     sx={{
       width: ["100%", "100%", "55%"],
@@ -67,6 +68,7 @@ In recent months i've developed an interest in technical writing and have starte
       pr: [0,0, 4],
     }}
   >
+
 
 ## [contact](#contact)
 
@@ -116,12 +118,14 @@ In recent months i've developed an interest in technical writing and have starte
 
   </Box>
 
+
   <Box
     sx={{
       width: ["100%", "100%", "45%"],
       mb: 3
     }}
   >
+
 
 ## [tech-stack](#tech-stack)
 
@@ -151,9 +155,11 @@ In recent months i've developed an interest in technical writing and have starte
   )}
 </SourceTags>
 
-  </Box>
+</Box>
+
 
 </Flex>
+
 
 <Divider />
 
@@ -163,11 +169,9 @@ Paid commercial work
 
 <SourceList filter="portfolio">
   {(projects) => (
-    <Flex
+    <Grid
       sx={{
-        flexWrap: "wrap",
-        ml: (theme) => `-${theme.space[2]}px`,
-        mr: (theme) => `-${theme.space[2]}px`,
+        gridTemplateColumns: ["1fr", "1fr", "1fr 1fr"],
       }}
     >
       {projects
@@ -189,9 +193,6 @@ Paid commercial work
                 display: "flex",
                 flex: "1 1 auto",
                 flexDirection: "column",
-                mb: 3,
-                width: ["100%", "50%"],
-                maxWidth: ["100%", "50%"],
               }}
             >
               <Card
@@ -200,8 +201,6 @@ Paid commercial work
                   flex: "1 1 auto",
                   flexDirection: "column",
                   minHeight: "1px",
-                  ml: 2,
-                  mr: 2,
                   p: 3,
                 }}
               >
@@ -270,24 +269,22 @@ Paid commercial work
             </Box>
           )
         })}
-    </Flex>
+    </Grid>
   )}
 </SourceList>
 
 <Divider />
 <Divider />
 
-## [opensource](#open-source)
+## [open source](#open-source)
 
-Opensource contributions and projects i'm actively maintaining
+Open source projects I'm actively maintaining 🕺
 
 <SourceList filter="opensource">
   {(projects) => (
-    <Flex
+    <Grid
       sx={{
-        flexWrap: "wrap",
-        ml: (theme) => `-${theme.space[2]}px`,
-        mr: (theme) => `-${theme.space[2]}px`,
+        gridTemplateColumns: ["1fr", "1fr", "1fr 1fr"],
       }}
     >
       {projects
@@ -309,9 +306,6 @@ Opensource contributions and projects i'm actively maintaining
                 display: "flex",
                 flex: "1 1 auto",
                 flexDirection: "column",
-                mb: 3,
-                width: ["100%", "50%"],
-                maxWidth: ["100%", "50%"],
               }}
             >
               <Card
@@ -320,8 +314,6 @@ Opensource contributions and projects i'm actively maintaining
                   flex: "1 1 auto",
                   flexDirection: "column",
                   minHeight: "1px",
-                  ml: 2,
-                  mr: 2,
                   p: 3,
                 }}
               >
@@ -349,7 +341,7 @@ Opensource contributions and projects i'm actively maintaining
                     {excerpt}
                   </Text>
                   <Link
-                    sx={{ fontSize: 0, mb: 3 }}
+                    sx={{ fontSize: "14px", mb: 3 }}
                     href={author}
                     target="_blank"
                   >
@@ -386,122 +378,8 @@ Opensource contributions and projects i'm actively maintaining
             </Box>
           )
         })}
-    </Flex>
+    </Grid>
   )}
 </SourceList>
 
 <Divider />
-<Divider />
-
-## [side hussle](#side-hussle)
-
-React applications i've built in my spare time, because i love it
-
-<SourceList filter="sidehussle">
-  {(projects) => (
-    <Flex
-      sx={{
-        flexWrap: "wrap",
-        ml: (theme) => `-${theme.space[2]}px`,
-        mr: (theme) => `-${theme.space[2]}px`,
-      }}
-    >
-      {projects
-        .sort(
-          (a, b) =>
-            new Date(b.node.frontmatter.date) -
-            new Date(a.node.frontmatter.date)
-        )
-        .map((edge, index) => {
-          const {
-            frontmatter: { date, title, tags, author },
-            fields: { slug },
-            excerpt,
-          } = edge.node
-          return (
-            <Box
-              key={index}
-              sx={{
-                display: "flex",
-                flex: "1 1 auto",
-                flexDirection: "column",
-                mb: 3,
-                width: ["100%", "50%"],
-                maxWidth: ["100%", "50%"],
-              }}
-            >
-              <Card
-                sx={{
-                  display: "flex",
-                  flex: "1 1 auto",
-                  flexDirection: "column",
-                  minHeight: "1px",
-                  ml: 2,
-                  mr: 2,
-                  p: 3,
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    flex: "1 1 auto",
-                    flexDirection: "column",
-                  }}
-                >
-                  <Text variant="styles.small">
-                    {format(new Date(date), "d-MMM-u")}
-                  </Text>
-                  <Heading variant="styles.h4" sx={{ color: "text", mt: 1 }}>
-                    {title}
-                  </Heading>
-                  <Text
-                    sx={{
-                      fontSize: 0,
-                      color: "text",
-                      mb: 3,
-                      wordBreak: "break-word",
-                    }}
-                  >
-                    {excerpt}
-                  </Text>
-                  <Link
-                    sx={{ fontSize: 0, mb: 3 }}
-                    href={author}
-                    target="_blank"
-                  >
-                    View project
-                  </Link>
-                </Box>
-                <Box>
-                  {tags.map((tag, index) => {
-                    return (
-                      <Badge
-                        key={index}
-                        variant="primary"
-                        sx={{
-                          mr: 2,
-                          mb: 2,
-                          color: mix(
-                            "muted",
-                            "primary",
-                            `${index / tags.length}`
-                          ),
-                          borderColor: mix(
-                            "muted",
-                            "primary",
-                            `${index / tags.length}`
-                          ),
-                        }}
-                      >
-                        {tag}
-                      </Badge>
-                    )
-                  })}
-                </Box>
-              </Card>
-            </Box>
-          )
-        })}
-    </Flex>
-  )}
-</SourceList>
