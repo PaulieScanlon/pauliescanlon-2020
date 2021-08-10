@@ -17,7 +17,7 @@ module.exports = {
       "Node.js",
       "Fauna",
       "FaunaDB",
-      "JAMStack",
+      "Jamtack",
       "Component Library",
     ],
     siteUrl: "https://pauliescanlon.io",
@@ -33,24 +33,22 @@ module.exports = {
     {
       resolve: "@pauliescanlon/gatsby-theme-terminal",
       options: {
-        source: ["portfolio", "opensource", "sidehussle"],
+        source: [
+          {
+            name: "portfolio",
+            dir: "portfolio",
+          },
+          {
+            name: "opensource",
+            dir: "opensource",
+          },
+          {
+            name: "sidehussle",
+            dir: "sidehussle",
+          },
+        ],
       },
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Paul Scanlon`,
-        short_name: `Ps`,
-        start_url: `/`,
-        lang: `en`,
-        background_color: `#282a36`,
-        theme_color: `#ff79c6`,
-        display: `standalone`,
-        icon: `src/manifesticon-512x512.png`,
-      },
-    },
-    // `gatsby-plugin-offline`,
-    `gatsby-plugin-remove-serviceworker`,
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
