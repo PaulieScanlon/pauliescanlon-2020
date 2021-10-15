@@ -41,6 +41,7 @@ export const ProfileInfo = () => {
     <Box
       sx={{
         minHeight: "120px",
+        my: 6,
       }}
     >
       {response ? (
