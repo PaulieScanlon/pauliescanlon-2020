@@ -16,7 +16,7 @@
     "@theme-ui/prism": "^0.10.0",
     "axios": "^0.21.1",
     "date-fns": "^2.23.0",
-    "gatsby": "^3.9.1",
+    "gatsby": "^4.25.7",
     "gatsby-plugin-google-analytics": "^3.10.0",
     "gatsby-plugin-manifest": "^2.2.42",
     "gatsby-plugin-mdx": "^2.10.1",
